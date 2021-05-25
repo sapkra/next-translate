@@ -15,6 +15,7 @@ export default function loader(rawCode: string) {
     extensionsRgx,
     pagesPath,
     hasLoadLocaleFrom,
+    forceSSR,
     // @ts-ignore
   } = this.query
 
@@ -100,7 +101,7 @@ export default function loader(rawCode: string) {
   }
 
   const loader =
-    isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths)
+    forceSSR || isGetServerSideProps || (!hasLoader && isDynamicPage && !isGetStaticPaths)
       ? 'getServerSideProps'
       : 'getStaticProps'
 

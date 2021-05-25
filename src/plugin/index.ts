@@ -96,6 +96,7 @@ export default function nextTranslate(nextConfig: any = {}) {
             hasAppJs: !!app,
             pagesPath: path.join(pagesPath, '/'),
             hasLoadLocaleFrom: typeof restI18n.loadLocaleFrom === 'function',
+            forceSSR: restI18n.forceSSR || false,
           },
         },
       })
